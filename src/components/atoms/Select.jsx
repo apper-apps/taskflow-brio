@@ -30,9 +30,41 @@ const Select = forwardRef(({
           className={cn(
             baseClasses,
             errorClasses,
-            className
+className
           )}
-          {...props}
+          {...(() => {
+            // Filter out potentially problematic props that could contain circular references
+            const safePropFilter = (props) => {
+              const safeProps = { ...props };
+              // Remove props that commonly contain DOM elements or circular references
+              delete safeProps.onChange;
+              delete safeProps.onBlur;
+              delete safeProps.onFocus;
+              delete safeProps.key;
+              delete safeProps.ref;
+              delete safeProps.children;
+              delete safeProps.className;
+              delete safeProps.label;
+              delete safeProps.error;
+              delete safeProps.options;
+              delete safeProps.placeholder;
+              delete safeProps.containerClassName;
+              
+              // Remove any function properties to avoid potential circular refs
+              Object.keys(safeProps).forEach(key => {
+                if (typeof safeProps[key] === 'function') {
+                  delete safeProps[key];
+                }
+              });
+              
+              return safeProps;
+            };
+            
+            return safePropFilter(props);
+          })()}
+          onChange={props.onChange}
+          onBlur={props.onBlur}
+          onFocus={props.onFocus}
         >
           {placeholder && (
             <option value="" disabled className="text-slate-400">

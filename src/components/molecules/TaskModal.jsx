@@ -14,23 +14,24 @@ const TaskModal = ({
   categories = [],
   loading = false
 }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
     description: "",
     categoryId: "",
     priority: "medium",
+    status: "not_started",
     dueDate: ""
   });
-  
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (task) {
+if (task) {
       setFormData({
         title: task.title || "",
         description: task.description || "",
         categoryId: task.categoryId?.toString() || "",
         priority: task.priority || "medium",
+        status: task.status || "not_started",
         dueDate: task.dueDate ? format(new Date(task.dueDate), "yyyy-MM-dd'T'HH:mm") : ""
       });
     } else {
@@ -39,6 +40,7 @@ const TaskModal = ({
         description: "",
         categoryId: "",
         priority: "medium",
+        status: "not_started",
         dueDate: ""
       });
     }
@@ -182,7 +184,24 @@ const TaskModal = ({
                   className="flex-1"
                 >
                   {task ? "Update Task" : "Create Task"}
-                </Button>
+</Button>
+
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-slate-300">
+                    Status
+                  </label>
+                  <Select
+                    value={formData.status}
+                    onChange={(value) => handleInputChange("status", value)}
+                    options={[
+                      { value: "not_started", label: "Not Started" },
+                      { value: "in_progress", label: "In Progress" },
+                      { value: "completed", label: "Completed" },
+                      { value: "on_hold", label: "On Hold" }
+                    ]}
+                    className="w-full"
+                  />
+                </div>
                 
                 <Button
                   type="button"

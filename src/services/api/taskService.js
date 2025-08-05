@@ -26,10 +26,11 @@ export const taskService = {
     const newId = Math.max(...tasks.map(t => t.Id)) + 1;
     const newTask = {
       Id: newId,
-      title: taskData.title,
+title: taskData.title,
       description: taskData.description || "",
       categoryId: parseInt(taskData.categoryId),
       priority: taskData.priority,
+      status: taskData.status || "not_started",
       dueDate: taskData.dueDate || null,
       completed: false,
       createdAt: new Date().toISOString(),

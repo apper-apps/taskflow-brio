@@ -51,8 +51,24 @@
     @apply bg-gradient-to-r from-yellow-500 to-orange-500;
   }
   
-  .priority-low {
+.priority-low {
     @apply bg-gradient-to-r from-green-500 to-emerald-500;
+  }
+  
+  .status-not_started {
+    @apply bg-gradient-to-r from-slate-500 to-slate-600;
+  }
+  
+  .status-in_progress {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-500;
+  }
+  
+  .status-completed {
+    @apply bg-gradient-to-r from-green-500 to-emerald-500;
+  }
+  
+  .status-on_hold {
+    @apply bg-gradient-to-r from-yellow-500 to-amber-500;
   }
   
   .gradient-text {

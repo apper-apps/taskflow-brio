@@ -87,11 +87,11 @@ if (task) {
     { value: "high", label: "High Priority" },
     { value: "medium", label: "Medium Priority" },
     { value: "low", label: "Low Priority" }
-  ];
+];
 
   const categoryOptions = categories.map(cat => ({
     value: cat.Id.toString(),
-    label: cat.name
+    label: cat.Name
   }));
 
   if (!isOpen) return null;

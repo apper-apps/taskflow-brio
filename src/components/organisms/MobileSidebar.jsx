@@ -67,7 +67,7 @@ const MobileSidebar = ({ isOpen, onClose, categories = [] }) => {
                     </span>
                   </NavLink>
                 ))}
-              </div>
+</div>
 
               {categories.length > 0 && (
                 <div className="pt-6">
@@ -90,7 +90,7 @@ const MobileSidebar = ({ isOpen, onClose, categories = [] }) => {
                         />
                         <ApperIcon name={category.icon} size={18} className="text-slate-400 group-hover:text-slate-200" />
                         <span className="font-medium text-slate-200 group-hover:text-white">
-                          {category.name}
+                          {category.Name}
                         </span>
                       </NavLink>
                     ))}

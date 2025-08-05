@@ -20,9 +20,9 @@ const FilterBar = ({
     { value: "low", label: "Low Priority" }
   ];
 
-  const categoryOptions = [
+const categoryOptions = [
     { value: "", label: "All Categories" },
-    ...categories.map(cat => ({ value: cat.Id.toString(), label: cat.name }))
+    ...categories.map(cat => ({ value: cat.Id.toString(), label: cat.Name }))
   ];
 
   const hasActiveFilters = selectedCategory || selectedPriority || showCompleted;

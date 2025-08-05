@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-
+import { AuthContext } from "../../App";
 const Header = ({ onToggleMobileMenu, className = "" }) => {
+  const { logout } = useContext(AuthContext);
+  
   return (
     <header className={`bg-surface/30 backdrop-blur-md border-b border-white/10 ${className}`}>
       <div className="px-6 py-4">
@@ -31,6 +33,14 @@ const Header = ({ onToggleMobileMenu, className = "" }) => {
               <ApperIcon name="Zap" size={16} className="text-accent" />
               <span>Geometric Productivity</span>
             </div>
+            
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={logout}
+              icon="LogOut"
+              className="p-2 text-slate-400 hover:text-white"
+            />
           </div>
         </div>
       </div>

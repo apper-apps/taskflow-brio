@@ -42,7 +42,7 @@ const Sidebar = ({ categories = [] }) => {
           ))}
         </div>
 
-        {categories.length > 0 && (
+{categories.length > 0 && (
           <div className="pt-6">
             <h3 className="px-4 py-2 text-sm font-semibold text-slate-400 uppercase tracking-wider">
               Categories
@@ -62,7 +62,7 @@ const Sidebar = ({ categories = [] }) => {
                   />
                   <ApperIcon name={category.icon} size={18} className="text-slate-400 group-hover:text-slate-200" />
                   <span className="font-medium text-slate-200 group-hover:text-white">
-                    {category.name}
+                    {category.Name}
                   </span>
                 </NavLink>
               ))}

@@ -204,12 +204,12 @@ const TaskList = ({ filter = "all", categoryId = null }) => {
           className="max-w-md"
         />
         
-        <FilterBar
+<FilterBar
           categories={categories}
           selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={(value) => setSelectedCategory(typeof value === 'string' ? value : value?.target?.value || '')}
           selectedPriority={selectedPriority}
-          onPriorityChange={setSelectedPriority}
+          onPriorityChange={(value) => setSelectedPriority(typeof value === 'string' ? value : value?.target?.value || '')}
           showCompleted={showCompleted}
           onToggleCompleted={() => setShowCompleted(!showCompleted)}
           onClearFilters={clearFilters}
